@@ -1,29 +1,33 @@
 package com.att3.repository;
 
-import com.att3.model.Entrega;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-public class EntregaRepository {
-    private final Map<Long, Entrega> entregas = new HashMap<>();
+import com.att3.model.Entrega;
+import com.att3.model.StatusEntrega;
 
-    public Entrega salvar(Entrega entrega) {
+public class EntregaRepository
+{
+    HashMap<Long, Entrega> entregas = new HashMap<>();
+
+    public Entrega cadastrarEntrega(Entrega entrega)
+    {
         entregas.put(entrega.getId(), entrega);
         return entrega;
     }
 
-    public Entrega buscarPorId(Long id) {
-        return entregas.get(id);
-    }
-
-    public List<Entrega> listarTodas() {
+    public ArrayList<Entrega> listarEntrega()
+    {
         return new ArrayList<>(entregas.values());
     }
 
-    public void removerPorId(Long id) {
-        entregas.remove(id);
+    public void atualizarStatus(Entrega entrega, StatusEntrega statusEntrega)
+    {
+        entregas.get(entrega.getId()).setStatusEntrega(statusEntrega);
+    }
+
+    public void remover(Entrega entrega)
+    {
+        entregas.remove(entrega.getId());
     }
 }

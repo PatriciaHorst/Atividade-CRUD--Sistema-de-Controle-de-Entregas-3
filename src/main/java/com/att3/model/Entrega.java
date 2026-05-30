@@ -1,60 +1,70 @@
 package com.att3.model;
 
-public class Entrega {
+public class Entrega
+{
     private Long id;
     private Cliente cliente;
     private Entregador entregador;
     private String descricao;
-    private String status;
+    private StatusEntrega statusEntrega;
 
-    public Entrega(Long id, Cliente cliente, Entregador entregador, String descricao, String status) {
+    public Entrega(Long id, Cliente cliente, Entregador entregador, String descricao, StatusEntrega statusEntrega)
+    {
         this.id = id;
         this.cliente = cliente;
         this.entregador = entregador;
         this.descricao = descricao;
-        this.status = status;
+        this.statusEntrega = statusEntrega;
     }
 
-    public Entrega() {
-    }
-
-    public Long getId() {
+    public Long getId()
+    {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id)
+    {
         this.id = id;
     }
 
-    public Cliente getCliente() {
+    public Cliente getCliente()
+    {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(Cliente cliente)
+    {
         this.cliente = cliente;
     }
 
-    public Entregador getEntregador() {
+    public Entregador getEntregador()
+    {
         return entregador;
     }
 
-    public void setEntregador(Entregador entregador) {
+    public void setEntregador(Entregador entregador)
+    {
         this.entregador = entregador;
     }
 
-    public String getDescricao() {
+    public String getDescricao()
+    {
         return descricao;
     }
 
-    public void setDescricao(String descricao) {
+    public void setDescricao(String descricao)
+    {
         this.descricao = descricao;
     }
 
-    public String getStatus() {
-        return status;
+    public StatusEntrega getStatusEntrega()
+    {
+        return statusEntrega;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatusEntrega(StatusEntrega statusEntrega)
+    {
+        this.statusEntrega = statusEntrega;
     }
+
 }

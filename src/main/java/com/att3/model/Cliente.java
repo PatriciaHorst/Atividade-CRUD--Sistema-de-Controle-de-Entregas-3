@@ -13,7 +13,6 @@ public class Cliente
         this.endereco = endereco;
     }
 
-
     public Long getId()
     {
         return id;
