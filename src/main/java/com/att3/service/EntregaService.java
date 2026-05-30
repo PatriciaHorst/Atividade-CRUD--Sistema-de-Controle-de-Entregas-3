@@ -3,11 +3,14 @@ package com.att3.service;
 import com.att3.model.Cliente;
 import com.att3.model.Entrega;
 import com.att3.model.Entregador;
+import com.att3.repository.ClienteRepository;
 import com.att3.repository.EntregaRepository;
+import com.att3.repository.EntregadorRepository;
 
 import java.util.List;
 
 public class EntregaService {
+
     private final EntregaRepository entregaRepository;
     private final ClienteService clienteService;
     private final EntregadorService entregadorService;
@@ -27,7 +30,7 @@ public class EntregaService {
     }
 
     public Entrega cadastrarEntrega(Long id, Long clienteId, Long entregadorId, String descricao, String status) {
-        Cliente cliente = clienteService.buscarClientePorId(clienteId);
+        Cliente cliente = clienteService.buscarCliente(id);
         Entregador entregador = entregadorService.buscarEntregadorPorId(entregadorId);
 
         if (cliente == null || entregador == null) {
@@ -72,4 +75,6 @@ public class EntregaService {
     public void removerEntrega(Long id) {
         entregaRepository.removerPorId(id);
     }
+
+
 }

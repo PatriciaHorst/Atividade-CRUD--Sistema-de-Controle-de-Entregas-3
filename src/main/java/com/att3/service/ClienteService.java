@@ -6,28 +6,29 @@ import com.att3.repository.ClienteRepository;
 import java.util.List;
 
 public class ClienteService {
-    private final ClienteRepository clienteRepository;
 
-    public ClienteService(ClienteRepository clienteRepository) {
+    private ClienteRepository clienteRepository;
+
+    public ClienteService(ClienteRepository clienteRepository){
         this.clienteRepository = clienteRepository;
     }
 
-    public Cliente cadastrarCliente(Cliente cliente) {
+    public Cliente cadastrarCliente(Cliente cliente){
         return clienteRepository.salvar(cliente);
     }
 
-    public Cliente buscarClientePorId(Long id) {
+    public Cliente buscarCliente(Long id){
         return clienteRepository.buscarPorId(id);
     }
 
-    public List<Cliente> listarClientes() {
+    public List<Cliente> listarClientes(){
         return clienteRepository.listarTodos();
     }
 
-    public Cliente atualizarCliente(Long id, String nome, String endereco) {
+    public Cliente atualizarCliente(Long id, String nome, String endereco){
         Cliente cliente = clienteRepository.buscarPorId(id);
 
-        if (cliente != null) {
+        if(cliente != null){
             cliente.setNome(nome);
             cliente.setEndereco(endereco);
             clienteRepository.salvar(cliente);
@@ -36,7 +37,8 @@ public class ClienteService {
         return cliente;
     }
 
-    public void removerCliente(Long id) {
+    public void removerCliente(Long id){
         clienteRepository.removerPorId(id);
     }
+
 }

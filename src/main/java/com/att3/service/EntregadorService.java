@@ -1,14 +1,16 @@
 package com.att3.service;
 
 import com.att3.model.Entregador;
+import com.att3.repository.EntregaRepository;
 import com.att3.repository.EntregadorRepository;
 
 import java.util.List;
 
 public class EntregadorService {
-    private final EntregadorRepository entregadorRepository;
 
-    public EntregadorService(EntregadorRepository entregadorRepository) {
+    private EntregadorRepository entregadorRepository;
+
+    public EntregaService(EntregadorRepository entregadorRepository){
         this.entregadorRepository = entregadorRepository;
     }
 
@@ -51,4 +53,6 @@ public class EntregadorService {
     public void removerEntregador(Long id) {
         entregadorRepository.removerPorId(id);
     }
+
+
 }
